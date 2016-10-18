@@ -22,7 +22,12 @@ public class PopularLink {
 	}
 
 	public void test(){
-		System.out.println(wa.getArticel("https://sv.wikipedia.org/w/index.php?title=Special:Alla_sidor"));
+		try {
+			System.out.println(wa.getArticel("https://sv.wikipedia.org/w/index.php?title=Special:Alla_sidor"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	
 	}
@@ -30,13 +35,23 @@ public class PopularLink {
 	public void getAllArticels() {
 		String htmlText = null;		
 
-		htmlText = wa.getArticel("https://sv.wikipedia.org/w/index.php?title=Special:Alla_sidor");
+		try {
+			htmlText = wa.getArticel("https://sv.wikipedia.org/w/index.php?title=Special:Alla_sidor");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		readPage(htmlText);	
 		
 		while (moreArticels) {
 
-			htmlText = wa.getArticel("https://sv.wikipedia.org/w/index.php?title=Special:Alla_sidor&from="
-					+ last);
+			try {
+				htmlText = wa.getArticel("https://sv.wikipedia.org/w/index.php?title=Special:Alla_sidor&from="
+						+ last);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println(last + " " + z);
 			readPage(htmlText);
 			
@@ -47,7 +62,7 @@ public class PopularLink {
 		scanner2 = new Scanner(s);
 		while (scanner2.hasNextLine()) {
 			String line = scanner2.nextLine();
-			if (line.startsWith("<li class")) {
+			if (line.startsWith("<li")) {
 				if (line.contains("title=\"")) {
 					int x = line.indexOf("<a href=\"");
 					x=x+15;

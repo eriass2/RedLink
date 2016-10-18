@@ -15,7 +15,7 @@ public class Wikiartical {
 	 * @return
 	 */
 
-	public String getArticel(String s) {
+	public String getArticel(String s)  throws Exception{
 		URL url = getURL(s);
 		System.out.println(url);
 		checConnection(url);
@@ -26,6 +26,9 @@ public class Wikiartical {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if(htmlText==null){
+			throw new IOException("Notning");
 		}
 		return htmlText;
 	}
