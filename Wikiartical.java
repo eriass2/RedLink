@@ -7,9 +7,17 @@ import java.util.Scanner;
 public class Wikiartical {
 	
 	private Scanner scanner3;
+	private URLConnection yc;
+	
+	/**
+	 * Denna har som syfte att ta emot en url och sedan retunera motvarande html kod på den sidan till en string
+	 * @param s
+	 * @return
+	 */
 
 	public String getArticel(String s) {
 		URL url = getURL(s);
+		System.out.println(url);
 		checConnection(url);
 		String htmlText = "1";
 		try {
@@ -35,7 +43,7 @@ public class Wikiartical {
 	}
 
 	private boolean checConnection(URL url) {
-		URLConnection yc = null;
+		
 		try {
 			yc = url.openConnection();
 		} catch (IOException e) {

@@ -247,16 +247,16 @@ public class RedLink extends JFrame {
 		
 
 		
-		case 2:
-                    	PopularLink pl = new PopularLink();
-			try{
-				print(pl.getRedLinks(filePath, languages[langVal]));
-			}catch(InterruptedException e){
-				showErrorMessage(e.getMessage());
-			}catch(NoSuchElementException e){
-				showErrorMessage(e.getMessage());
-			}
-		break;
+//		case 2:
+//                    	PopularLink pl = new PopularLink();
+//			try{
+//				//print(pl.getRedLinks(filePath, languages[langVal]));
+//			}catch(InterruptedException e){
+//				showErrorMessage(e.getMessage());
+//			}catch(NoSuchElementException e){
+//				showErrorMessage(e.getMessage());
+//			}
+//		break;
 		
 		
 
